@@ -37,7 +37,7 @@ class ViewController: UIViewController {
     }
     
     func alamoFirePostExample(){
-        let param = ["request":"city_listing","device_type":"ios","countr":"india"]
+        let param = ["request":"city_listing","device_type":"ios","country":"india"]
         AF.request("https://www.kalyanmobile.com/apiv1_staging/city_listing.php", method: .post, parameters: param).responseJSON { (resp) in
             
             if let dict = resp.value as? NSDictionary{
