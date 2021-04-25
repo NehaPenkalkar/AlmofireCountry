@@ -60,6 +60,10 @@ extension ViewController: UITableViewDataSource, UITableViewDelegate{
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = UITableViewCell(style: .default, reuseIdentifier: "cell")
+        let arr = stateDict.allKeys as! [String]
+        let arr1 = arr[indexPath.section]
+        cityNameArr = stateDict.value(forKey: "\(arr1)") as! [String]
+        cell.textLabel?.text = "\(cityNameArr[indexPath.row])"
         return cell
     }
     
