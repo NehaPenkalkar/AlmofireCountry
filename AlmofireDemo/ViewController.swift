@@ -7,13 +7,21 @@
 
 import UIKit
 import Alamofire
-
+import Lottie
 
 class ViewController: UIViewController {
     @IBOutlet weak var cityTV: UITableView!
     
+    @IBOutlet var errView: UIView!
+    @IBOutlet weak var errBtn: UIButton!
+    @IBOutlet weak var errLbl: UILabel!
+    
+   
+    
     var stateDict = NSDictionary()
     var cityNameArr = [String]()
+    
+    @IBOutlet weak var animView: AnimationView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -21,9 +29,17 @@ class ViewController: UIViewController {
         alamoFirePostExample()
     }
     
+    func showErr(msg: String){
+        self.errLbl.text = msg
+        self.cityTV.backgroundView = self.errView
+        animView.loopMode = .loop
+        animView.play()
+    }
+    
     func alamoFirePostExample(){
-        let param = ["request":"city_listing","device_type":"ios","country":"india"]
+        let param = ["request":"city_listing","device_type":"ios","countr":"india"]
         AF.request("https://www.kalyanmobile.com/apiv1_staging/city_listing.php", method: .post, parameters: param).responseJSON { (resp) in
+            
             if let dict = resp.value as? NSDictionary{
                 if let respCode = dict.value(forKey: "responseCode") as? String, let respMsg = dict.value(forKey: "responseMessage") as? String{
                     if respCode == "success"{
@@ -32,6 +48,7 @@ class ViewController: UIViewController {
                         print("Success")
                         self.cityTV.reloadData()
                     }else{
+                        self.showErr(msg: respMsg)
                         print(respMsg)
                     }
                 }
@@ -39,6 +56,7 @@ class ViewController: UIViewController {
         }
     }
 }
+
 
 extension ViewController: UITableViewDataSource, UITableViewDelegate{
     func numberOfSections(in tableView: UITableView) -> Int {
@@ -59,17 +77,20 @@ extension ViewController: UITableViewDataSource, UITableViewDelegate{
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = UITableViewCell(style: .default, reuseIdentifier: "cell")
+        let cell = tableView.dequeueReusableCell(withIdentifier: "CustomTVC") as! CustomTVC
         let arr = stateDict.allKeys as! [String]
         let arr1 = arr[indexPath.section]
         cityNameArr = stateDict.value(forKey: "\(arr1)") as! [String]
-        cell.textLabel?.text = "\(cityNameArr[indexPath.row])"
+        cell.cityLbl.text = "\(cityNameArr[indexPath.row])"
         return cell
     }
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return 100
+        return 50
     }
     
+    func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
+        return 0.1
+    }
     
 }

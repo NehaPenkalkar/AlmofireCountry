@@ -8,5 +8,6 @@ target 'AlmofireDemo' do
   # Pods for AlmofireDemo
 
 pod 'Alamofire', '~> 5.2'
+pod 'lottie-ios'
 
 end

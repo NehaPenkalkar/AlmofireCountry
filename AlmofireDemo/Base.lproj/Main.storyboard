@@ -17,9 +17,9 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" translatesAutoresizingMaskIntoConstraints="NO" id="YS9-6L-Aho">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" contentInsetAdjustmentBehavior="scrollableAxes" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" translatesAutoresizingMaskIntoConstraints="NO" id="YS9-6L-Aho">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <color key="backgroundColor" red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="CustomHeader" rowHeight="133" id="j4M-1X-BWu" customClass="CustomHeader" customModule="AlmofireDemo" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="55.5" width="414" height="133"/>
@@ -28,20 +28,51 @@
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="133"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="gradient" translatesAutoresizingMaskIntoConstraints="NO" id="Zfg-Yp-F4t">
+                                                    <rect key="frame" x="0.0" y="0.0" width="414" height="133"/>
+                                                </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PGI-LB-Cf0">
-                                                    <rect key="frame" x="36" y="54.5" width="52.5" height="24"/>
+                                                    <rect key="frame" x="20" y="54.5" width="52.5" height="24"/>
                                                     <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="20"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="PGI-LB-Cf0" firstAttribute="centerY" secondItem="GCB-mz-8Y0" secondAttribute="centerY" id="hsM-o4-t62"/>
-                                                <constraint firstItem="PGI-LB-Cf0" firstAttribute="leading" secondItem="GCB-mz-8Y0" secondAttribute="leadingMargin" constant="16" id="wcQ-Ha-TAf"/>
+                                                <constraint firstItem="PGI-LB-Cf0" firstAttribute="centerY" secondItem="GCB-mz-8Y0" secondAttribute="centerY" id="9VC-X9-iD1"/>
+                                                <constraint firstItem="PGI-LB-Cf0" firstAttribute="leading" secondItem="GCB-mz-8Y0" secondAttribute="leadingMargin" id="DWO-Gd-y2I"/>
+                                                <constraint firstAttribute="bottom" secondItem="Zfg-Yp-F4t" secondAttribute="bottom" id="SaX-Hv-r2b"/>
+                                                <constraint firstAttribute="trailing" secondItem="Zfg-Yp-F4t" secondAttribute="trailing" id="T5J-xY-akf"/>
+                                                <constraint firstItem="Zfg-Yp-F4t" firstAttribute="top" secondItem="GCB-mz-8Y0" secondAttribute="top" id="s3R-xc-W4X"/>
+                                                <constraint firstItem="Zfg-Yp-F4t" firstAttribute="leading" secondItem="GCB-mz-8Y0" secondAttribute="leading" id="zQh-DF-9v4"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <connections>
+                                            <outlet property="CountryName" destination="PGI-LB-Cf0" id="fIO-oZ-2oS"/>
+                                        </connections>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="CustomTVC" rowHeight="99" id="NOG-hO-UW6" customClass="CustomTVC" customModule="AlmofireDemo" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="188.5" width="414" height="99"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="NOG-hO-UW6" id="TEL-U5-33a">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="99"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7N4-l8-JoR">
+                                                    <rect key="frame" x="20" y="39" width="44" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="7N4-l8-JoR" firstAttribute="leading" secondItem="TEL-U5-33a" secondAttribute="leadingMargin" id="Ulo-2G-83U"/>
+                                                <constraint firstItem="7N4-l8-JoR" firstAttribute="centerY" secondItem="TEL-U5-33a" secondAttribute="centerY" id="s9k-5y-DTP"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <outlet property="CountryName" destination="PGI-LB-Cf0" id="fIO-oZ-2oS"/>
+                                            <outlet property="cityLbl" destination="7N4-l8-JoR" id="ryK-jx-ahe"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -61,15 +92,53 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="animView" destination="5WW-Mw-Oc7" id="Coj-pn-B9N"/>
                         <outlet property="cityTV" destination="YS9-6L-Aho" id="zEu-cs-h88"/>
+                        <outlet property="errLbl" destination="km3-vy-Iaf" id="eKr-SL-WmR"/>
+                        <outlet property="errView" destination="ymM-WG-0GZ" id="BcC-YA-S5w"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                <view contentMode="scaleToFill" id="ymM-WG-0GZ">
+                    <rect key="frame" x="0.0" y="0.0" width="412" height="453"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="km3-vy-Iaf">
+                            <rect key="frame" x="16" y="216.5" width="380" height="20"/>
+                            <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="17"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5WW-Mw-Oc7" customClass="AnimationView" customModule="Lottie">
+                            <rect key="frame" x="106" y="246.5" width="200" height="200"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="200" id="ae5-Ix-AZ2"/>
+                                <constraint firstAttribute="width" secondItem="5WW-Mw-Oc7" secondAttribute="height" multiplier="1:1" id="pSz-Lb-uxZ"/>
+                            </constraints>
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="string" keyPath="animationName" value="uhOh"/>
+                            </userDefinedRuntimeAttributes>
+                        </view>
+                    </subviews>
+                    <viewLayoutGuide key="safeArea" id="5BI-2f-sYV"/>
+                    <color key="backgroundColor" red="0.57045853140000002" green="0.57047235969999999" blue="0.57046490910000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <constraints>
+                        <constraint firstItem="km3-vy-Iaf" firstAttribute="centerY" secondItem="ymM-WG-0GZ" secondAttribute="centerY" id="5u0-u9-xgO"/>
+                        <constraint firstItem="5WW-Mw-Oc7" firstAttribute="top" secondItem="km3-vy-Iaf" secondAttribute="bottom" constant="10" id="Xki-eY-50Z"/>
+                        <constraint firstItem="5BI-2f-sYV" firstAttribute="trailing" secondItem="km3-vy-Iaf" secondAttribute="trailing" constant="16" id="bHn-4z-ja0"/>
+                        <constraint firstItem="5WW-Mw-Oc7" firstAttribute="centerX" secondItem="km3-vy-Iaf" secondAttribute="centerX" id="bRz-cn-l97"/>
+                        <constraint firstItem="km3-vy-Iaf" firstAttribute="leading" secondItem="5BI-2f-sYV" secondAttribute="leading" constant="16" id="qvh-Qg-R7s"/>
+                    </constraints>
+                </view>
             </objects>
             <point key="canvasLocation" x="11.594202898550726" y="53.571428571428569"/>
         </scene>
     </scenes>
+    <designables>
+        <designable name="5WW-Mw-Oc7"/>
+    </designables>
     <resources>
+        <image name="gradient" width="1080" height="1920"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
