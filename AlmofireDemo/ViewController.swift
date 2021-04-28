@@ -26,13 +26,6 @@ class ViewController: UIViewController {
         alamoFirePostExample()
     }
     
-    func showErr(msg: String){
-        self.errLbl.text = msg
-        self.cityTV.backgroundView = self.errView
-        animView.loopMode = .loop
-        animView.play()
-    }
-    
     @IBAction func retryBtn(_ sender: UIButton) {
         alamoFirePostExample()
     }
@@ -61,13 +54,15 @@ class ViewController: UIViewController {
             showErr(msg: "Internet connection not available, Please check your connection and try again.")
         }
     }
-}
-
-class Connectivity {
-    class func isConnectedToInternet() ->Bool {
-        return NetworkReachabilityManager()!.isReachable
+    
+    func showErr(msg: String){
+        self.errLbl.text = msg
+        self.cityTV.backgroundView = self.errView
+        animView.loopMode = .loop
+        animView.play()
     }
 }
+
 
 extension ViewController: UITableViewDataSource, UITableViewDelegate{
     func numberOfSections(in tableView: UITableView) -> Int {
@@ -104,4 +99,11 @@ extension ViewController: UITableViewDataSource, UITableViewDelegate{
         return 0.1
     }
     
+}
+
+
+class Connectivity {
+    class func isConnectedToInternet() ->Bool {
+        return NetworkReachabilityManager()!.isReachable
+    }
 }
