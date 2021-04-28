@@ -103,14 +103,8 @@
                     <rect key="frame" x="0.0" y="0.0" width="412" height="453"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <subviews>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="km3-vy-Iaf">
-                            <rect key="frame" x="16" y="216.5" width="380" height="20"/>
-                            <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="17"/>
-                            <nil key="textColor"/>
-                            <nil key="highlightedColor"/>
-                        </label>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5WW-Mw-Oc7" customClass="AnimationView" customModule="Lottie">
-                            <rect key="frame" x="106" y="246.5" width="200" height="200"/>
+                            <rect key="frame" x="106" y="251" width="200" height="200"/>
                             <constraints>
                                 <constraint firstAttribute="width" constant="200" id="ae5-Ix-AZ2"/>
                                 <constraint firstAttribute="width" secondItem="5WW-Mw-Oc7" secondAttribute="height" multiplier="1:1" id="pSz-Lb-uxZ"/>
@@ -119,14 +113,42 @@
                                 <userDefinedRuntimeAttribute type="string" keyPath="animationName" value="uhOh"/>
                             </userDefinedRuntimeAttributes>
                         </view>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZOg-nW-d2Y">
+                            <rect key="frame" x="161" y="204" width="90" height="45"/>
+                            <color key="backgroundColor" red="0.47395879029999999" green="0.50932770969999996" blue="0.68739515539999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="90" id="A48-o0-ENJ"/>
+                                <constraint firstAttribute="width" secondItem="ZOg-nW-d2Y" secondAttribute="height" multiplier="2:1" id="fSp-jP-tVc"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="17"/>
+                            <state key="normal" title="Retry">
+                                <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </state>
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                    <integer key="value" value="10"/>
+                                </userDefinedRuntimeAttribute>
+                            </userDefinedRuntimeAttributes>
+                            <connections>
+                                <action selector="retryBtn:" destination="BYZ-38-t0r" eventType="touchUpInside" id="QOg-wg-xam"/>
+                            </connections>
+                        </button>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="km3-vy-Iaf">
+                            <rect key="frame" x="16" y="163.5" width="380" height="20.5"/>
+                            <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="17"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
                     </subviews>
                     <viewLayoutGuide key="safeArea" id="5BI-2f-sYV"/>
                     <color key="backgroundColor" red="0.57045853140000002" green="0.57047235969999999" blue="0.57046490910000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <constraints>
-                        <constraint firstItem="km3-vy-Iaf" firstAttribute="centerY" secondItem="ymM-WG-0GZ" secondAttribute="centerY" id="5u0-u9-xgO"/>
-                        <constraint firstItem="5WW-Mw-Oc7" firstAttribute="top" secondItem="km3-vy-Iaf" secondAttribute="bottom" constant="10" id="Xki-eY-50Z"/>
+                        <constraint firstItem="ZOg-nW-d2Y" firstAttribute="top" secondItem="km3-vy-Iaf" secondAttribute="bottom" constant="20" id="3Jh-pd-WaG"/>
+                        <constraint firstItem="5WW-Mw-Oc7" firstAttribute="top" secondItem="ZOg-nW-d2Y" secondAttribute="bottom" constant="2" id="Fk3-DD-SP3"/>
+                        <constraint firstItem="ZOg-nW-d2Y" firstAttribute="centerY" secondItem="ymM-WG-0GZ" secondAttribute="centerY" id="aFw-iT-eVf"/>
+                        <constraint firstItem="ZOg-nW-d2Y" firstAttribute="centerX" secondItem="ymM-WG-0GZ" secondAttribute="centerX" id="abv-7m-IK1"/>
                         <constraint firstItem="5BI-2f-sYV" firstAttribute="trailing" secondItem="km3-vy-Iaf" secondAttribute="trailing" constant="16" id="bHn-4z-ja0"/>
-                        <constraint firstItem="5WW-Mw-Oc7" firstAttribute="centerX" secondItem="km3-vy-Iaf" secondAttribute="centerX" id="bRz-cn-l97"/>
+                        <constraint firstItem="5WW-Mw-Oc7" firstAttribute="centerX" secondItem="ZOg-nW-d2Y" secondAttribute="centerX" id="chi-wD-BNn"/>
                         <constraint firstItem="km3-vy-Iaf" firstAttribute="leading" secondItem="5BI-2f-sYV" secondAttribute="leading" constant="16" id="qvh-Qg-R7s"/>
                     </constraints>
                 </view>

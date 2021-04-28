@@ -13,10 +13,7 @@ class ViewController: UIViewController {
     @IBOutlet weak var cityTV: UITableView!
     
     @IBOutlet var errView: UIView!
-    @IBOutlet weak var errBtn: UIButton!
     @IBOutlet weak var errLbl: UILabel!
-    
-   
     
     var stateDict = NSDictionary()
     var cityNameArr = [String]()
@@ -36,27 +33,41 @@ class ViewController: UIViewController {
         animView.play()
     }
     
+    @IBAction func retryBtn(_ sender: UIButton) {
+        alamoFirePostExample()
+    }
+    
     func alamoFirePostExample(){
-        let param = ["request":"city_listing","device_type":"ios","country":"india"]
-        AF.request("https://www.kalyanmobile.com/apiv1_staging/city_listing.php", method: .post, parameters: param).responseJSON { (resp) in
-            
-            if let dict = resp.value as? NSDictionary{
-                if let respCode = dict.value(forKey: "responseCode") as? String, let respMsg = dict.value(forKey: "responseMessage") as? String{
-                    if respCode == "success"{
-                        let dataResp = resp.value as! NSDictionary
-                        self.stateDict = dataResp.value(forKey: "city_array") as! NSDictionary
-                        print("Success")
-                        self.cityTV.reloadData()
-                    }else{
-                        self.showErr(msg: respMsg)
-                        print(respMsg)
+        if Connectivity.isConnectedToInternet(){
+            print("Connected")
+            let param = ["request":"city_listing","device_type":"ios","country":"india"]
+            AF.request("https://www.kalyanmobile.com/apiv1_staging/city_listing.php", method: .post, parameters: param).responseJSON { (resp) in
+                
+                if let dict = resp.value as? NSDictionary{
+                    if let respCode = dict.value(forKey: "responseCode") as? String, let respMsg = dict.value(forKey: "responseMessage") as? String{
+                        if respCode == "success"{
+                            let dataResp = resp.value as! NSDictionary
+                            self.stateDict = dataResp.value(forKey: "city_array") as! NSDictionary
+                            print("Success")
+                            self.cityTV.reloadData()
+                        }else{
+                            self.showErr(msg: respMsg)
+                            print(respMsg)
+                        }
                     }
                 }
             }
+        }else{
+            showErr(msg: "Internet connection not available, Please check your connection and try again.")
         }
     }
 }
 
+class Connectivity {
+    class func isConnectedToInternet() ->Bool {
+        return NetworkReachabilityManager()!.isReachable
+    }
+}
 
 extension ViewController: UITableViewDataSource, UITableViewDelegate{
     func numberOfSections(in tableView: UITableView) -> Int {
